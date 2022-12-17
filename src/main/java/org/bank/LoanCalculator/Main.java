@@ -23,12 +23,13 @@ public class Main {
 
     public static void userInteraction () {
         int currentYear = Year.now().getValue();
-        int incomeFourthYear = stateIncome(currentYear - 1);
-        int incomeThirdYear = stateIncome(currentYear - 2);
-        int incomeSecondYear = stateIncome(currentYear - 3);
-        int incomeFirstYear = stateIncome(currentYear - 4);
+        int incomePerYear[] = new int[4];
 
-        Calculator.getMonthlyPayback (incomeFourthYear ,incomeThirdYear, incomeSecondYear, incomeFirstYear);
+        for (int i = 0; i < incomePerYear.length; i++) {
+            incomePerYear[i] = stateIncome(currentYear - 1 - i);
+        }
+
+        Calculator.getMonthlyPayback (incomePerYear[0] ,incomePerYear[1], incomePerYear[2], incomePerYear[3]);
     }
 
     public static void main(String[] args) {
