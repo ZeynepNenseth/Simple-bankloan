@@ -8,25 +8,19 @@ class CalculatorTest {
 
     @Test
     void hasRight() {
-        int baseAmount4 = 480_000;
-        int baseAmount2 = 240_000;
-        assertTrue(500_000 > baseAmount4);
-        assertTrue(300_000 > baseAmount2);
-        assertFalse(400_000 > baseAmount4);
-        assertFalse(200_000 > baseAmount2);
+        assertTrue(Calculator.hasRight(800_000, 350_000));
+        assertTrue(Calculator.hasRight(800_000, 100_000));
+        assertFalse(Calculator.hasRight(200_000, 200_000));
     }
 
     @Test
     void calculateMaxTotalIncome() {
-        int maxTotalIncome = 120_000 * 6;
-        assertEquals(720_000, maxTotalIncome);
+        assertEquals(120_000 * 7, Calculator.calculateMaxTotalIncome());
     }
 
     @Test
     void calculateMonthlyPayback() {
-        int averageIncome = 500_000;
-        int maxTotalIncome = 720_000;
-        int monthlyPayback = 500_000 / 48;
-        assertEquals(monthlyPayback, 10_416);
+        assertEquals(350_000 / 48, Calculator.calculateMonthlyPayback(800_000, 350_000));
+        assertEquals(200_000 / 48, Calculator.calculateMonthlyPayback(800_000, 100_000));
     }
 }
